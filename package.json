@@ -1,0 +1,27 @@
+{
+  "name": "sudoku-well",
+  "version": "1.0.0",
+  "description": "A multi-type Sudoku game website with tutorials and blog",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'No build step required for static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "sudoku",
+    "game",
+    "puzzle",
+    "html5",
+    "css3",
+    "javascript"
+  ],
+  "author": "Sudoku Well Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/sudoku-well.git"
+  },
+  "homepage": "https://sudoku-well.vercel.app"
+}

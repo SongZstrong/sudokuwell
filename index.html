@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Well - Multi-Sudoku Game</title>
+    <meta name="description" content="Play different types of Sudoku games online. Learn Sudoku strategies and techniques. Free Sudoku puzzles for all skill levels.">
+    <meta name="keywords" content="sudoku, online sudoku, sudoku game, sudoku puzzles, sudoku tutorial, mini sudoku, giant sudoku">
+    <meta name="author" content="Sudoku Well">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>Sudoku Well</h2>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#game" class="nav-link active" data-page="game">Game</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tutorial" class="nav-link" data-page="tutorial">Tutorial</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link" data-page="blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-page="contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Game Page -->
+    <div id="game" class="page active">
+        <div class="container">
+            <header>
+                <h1>Multi-Sudoku Game</h1>
+                <div class="game-info">
+                    <div class="timer">
+                        <span>Time: </span>
+                        <span id="time">00:00</span>
+                    </div>
+                    <div class="controls">
+                        <button id="pauseBtn" class="btn">Pause</button>
+                        <button id="newGameBtn" class="btn">New Game</button>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="game-container">
+                    <div class="game-selectors">
+                        <div class="sudoku-type-selector">
+                            <label for="sudokuType">Sudoku Type:</label>
+                            <select id="sudokuType">
+                                <option value="standard">Standard (9x9)</option>
+                                <option value="mini4">Mini (4x4)</option>
+                                <option value="mini6">Mini (6x6)</option>
+                                <option value="giant">Giant (16x16)</option>
+                            </select>
+                        </div>
+                        <div class="difficulty-selector">
+                            <label for="difficulty">Difficulty:</label>
+                            <select id="difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="sudoku-board" id="sudokuBoard">
+                        <!-- Sudoku board will be generated dynamically via JavaScript -->
+                    </div>
+
+                    <div class="number-pad" id="numberPad">
+                        <!-- Number buttons will be generated dynamically based on sudoku type -->
+                    </div>
+                </div>
+            </main>
+
+            <div id="message" class="message hidden"></div>
+        </div>
+    </div>
+
+    <!-- Tutorial Page -->
+    <div id="tutorial" class="page">
+        <div class="container">
+            <header>
+                <h1>Sudoku Tutorial</h1>
+                <p class="subtitle">Learn how to play different types of Sudoku</p>
+            </header>
+
+            <main class="tutorial-content">
+                <div class="tutorial-section">
+                    <h2>Standard Sudoku (9x9)</h2>
+                    <div class="tutorial-card">
+                        <h3>Rules</h3>
+                        <ul>
+                            <li>Fill each row with numbers 1-9 without repetition</li>
+                            <li>Fill each column with numbers 1-9 without repetition</li>
+                            <li>Fill each 3x3 box with numbers 1-9 without repetition</li>
+                            <li>Each number can only appear once in each row, column, and box</li>
+                        </ul>
+                        <h3>Tips</h3>
+                        <ul>
+                            <li>Start by looking for single candidates in rows, columns, or boxes</li>
+                            <li>Use the elimination technique to narrow down possibilities</li>
+                            <li>Look for patterns like naked pairs or triples</li>
+                            <li>Practice regularly to improve your solving speed</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tutorial-section">
+                    <h2>Mini Sudoku (4x4)</h2>
+                    <div class="tutorial-card">
+                        <h3>Rules</h3>
+                        <ul>
+                            <li>Fill each row with numbers 1-4 without repetition</li>
+                            <li>Fill each column with numbers 1-4 without repetition</li>
+                            <li>Fill each 2x2 box with numbers 1-4 without repetition</li>
+                            <li>Perfect for beginners and children</li>
+                        </ul>
+                        <h3>Tips</h3>
+                        <ul>
+                            <li>Great starting point for learning Sudoku</li>
+                            <li>Focus on one number at a time</li>
+                            <li>Use the highlighting feature to see related cells</li>
+                            <li>Practice until you can solve quickly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tutorial-section">
+                    <h2>Mini Sudoku (6x6)</h2>
+                    <div class="tutorial-card">
+                        <h3>Rules</h3>
+                        <ul>
+                            <li>Fill each row with numbers 1-6 without repetition</li>
+                            <li>Fill each column with numbers 1-6 without repetition</li>
+                            <li>Fill each 2x3 box with numbers 1-6 without repetition</li>
+                            <li>Intermediate difficulty between 4x4 and 9x9</li>
+                        </ul>
+                        <h3>Tips</h3>
+                        <ul>
+                            <li>Good practice before tackling standard Sudoku</li>
+                            <li>Pay attention to the 2x3 box layout</li>
+                            <li>Use the same techniques as standard Sudoku</li>
+                            <li>Build confidence with this size</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tutorial-section">
+                    <h2>Giant Sudoku (16x16)</h2>
+                    <div class="tutorial-card">
+                        <h3>Rules</h3>
+                        <ul>
+                            <li>Fill each row with numbers 0-9 and letters A-F without repetition</li>
+                            <li>Fill each column with numbers 0-9 and letters A-F without repetition</li>
+                            <li>Fill each 4x4 box with numbers 0-9 and letters A-F without repetition</li>
+                            <li>Advanced challenge for experienced players</li>
+                        </ul>
+                        <h3>Tips</h3>
+                        <ul>
+                            <li>Use hexadecimal notation (0-9, A-F)</li>
+                            <li>Take your time - this is a complex puzzle</li>
+                            <li>Focus on one section at a time</li>
+                            <li>Use pencil marks for possible candidates</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tutorial-section">
+                    <h2>General Solving Strategies</h2>
+                    <div class="tutorial-card">
+                        <h3>Basic Techniques</h3>
+                        <ul>
+                            <li><strong>Single Candidate:</strong> When a cell has only one possible number</li>
+                            <li><strong>Single Position:</strong> When a number can only go in one place in a row/column/box</li>
+                            <li><strong>Elimination:</strong> Remove impossible candidates from cells</li>
+                            <li><strong>Cross-hatching:</strong> Look for numbers that can only go in one row or column of a box</li>
+                        </ul>
+                        <h3>Advanced Techniques</h3>
+                        <ul>
+                            <li><strong>Naked Pairs:</strong> Two cells in the same unit with the same two candidates</li>
+                            <li><strong>Hidden Pairs:</strong> Two candidates that only appear in two cells of a unit</li>
+                            <li><strong>X-Wing:</strong> A number appears only twice in two rows and in the same columns</li>
+                            <li><strong>XY-Wing:</strong> A more complex pattern involving three cells</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page">
+        <div class="container">
+            <header>
+                <h1>Sudoku Blog</h1>
+                <p class="subtitle">Latest articles, tips, and insights about Sudoku</p>
+            </header>
+
+            <main class="blog-content">
+                <article class="blog-post">
+                    <h2>The History of Sudoku: From Ancient China to Modern Times</h2>
+                    <div class="post-meta">
+                        <span class="date">December 15, 2024</span>
+                        <span class="author">by Sudoku Well Team</span>
+                    </div>
+                    <div class="post-content">
+                        <p>Sudoku, despite its Japanese name, has roots that trace back to ancient China. The puzzle we know today evolved from the "Magic Square" concept, where numbers are arranged so that each row, column, and diagonal sums to the same value.</p>
+                        
+                        <h3>Ancient Origins</h3>
+                        <p>The earliest known magic squares date back to 650 BCE in China. These mathematical curiosities fascinated scholars and were believed to have mystical properties. The concept spread through trade routes, reaching India and eventually the Islamic world.</p>
+                        
+                        <h3>The Swiss Connection</h3>
+                        <p>In the 18th century, Swiss mathematician Leonhard Euler created "Latin Squares," which are grids where each symbol appears exactly once in each row and column. This mathematical concept forms the foundation of modern Sudoku.</p>
+                        
+                        <h3>Modern Sudoku</h3>
+                        <p>The puzzle as we know it today was first published in 1979 by Howard Garns, an American architect. However, it wasn't until 1984 that Japanese publisher Nikoli popularized the game under the name "Sudoku," which means "single number."</p>
+                        
+                        <h3>Global Phenomenon</h3>
+                        <p>Sudoku became a global sensation in 2004 when Wayne Gould, a retired Hong Kong judge, created a computer program to generate puzzles and convinced The Times of London to publish them. The rest, as they say, is history.</p>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <h2>10 Common Sudoku Mistakes and How to Avoid Them</h2>
+                    <div class="post-meta">
+                        <span class="date">December 10, 2024</span>
+                        <span class="author">by Sudoku Well Team</span>
+                    </div>
+                    <div class="post-content">
+                        <p>Even experienced Sudoku players make mistakes. Here are the most common errors and how to prevent them:</p>
+                        
+                        <h3>1. Rushing Through the Puzzle</h3>
+                        <p>Many players try to solve Sudoku too quickly, leading to careless errors. Take your time to carefully analyze each move before making it.</p>
+                        
+                        <h3>2. Not Using Pencil Marks</h3>
+                        <p>Pencil marks (candidates) are essential for solving difficult puzzles. Always note possible numbers in each cell to avoid missing important patterns.</p>
+                        
+                        <h3>3. Ignoring Box Constraints</h3>
+                        <p>Players often focus only on rows and columns, forgetting that each 3x3 box must contain all numbers 1-9. Always check box constraints.</p>
+                        
+                        <h3>4. Overlooking Hidden Singles</h3>
+                        <p>A hidden single occurs when a number can only go in one cell within a row, column, or box, even though other candidates are present.</p>
+                        
+                        <h3>5. Forgetting to Cross-Reference</h3>
+                        <p>Always cross-reference rows, columns, and boxes when placing numbers. A number that seems to fit in one context might conflict in another.</p>
+                        
+                        <h3>6. Not Using Elimination Techniques</h3>
+                        <p>Elimination is a powerful technique. Remove impossible candidates systematically to narrow down possibilities.</p>
+                        
+                        <h3>7. Ignoring Patterns</h3>
+                        <p>Look for patterns like naked pairs, triples, and quads. These can help eliminate candidates and solve the puzzle more efficiently.</p>
+                        
+                        <h3>8. Not Double-Checking</h3>
+                        <p>Always verify your moves. A single mistake can make the entire puzzle unsolvable.</p>
+                        
+                        <h3>9. Getting Stuck on One Approach</h3>
+                        <p>If one technique isn't working, try a different approach. Sometimes switching strategies reveals new possibilities.</p>
+                        
+                        <h3>10. Not Practicing Regularly</h3>
+                        <p>Sudoku is a skill that improves with practice. Regular practice helps you recognize patterns faster and solve puzzles more efficiently.</p>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <h2>Advanced Sudoku Techniques: Beyond the Basics</h2>
+                    <div class="post-meta">
+                        <span class="date">December 5, 2024</span>
+                        <span class="author">by Sudoku Well Team</span>
+                    </div>
+                    <div class="post-content">
+                        <p>Once you've mastered the basic techniques, it's time to explore advanced strategies that can solve even the most challenging puzzles.</p>
+                        
+                        <h3>X-Wing Technique</h3>
+                        <p>The X-Wing is a powerful technique for eliminating candidates. Look for a number that appears exactly twice in two different rows, and in the same columns. This pattern allows you to eliminate that number from other cells in those columns.</p>
+                        
+                        <h3>XY-Wing Strategy</h3>
+                        <p>XY-Wing involves three cells: a pivot cell with candidates X and Y, and two wing cells with candidates X-Z and Y-Z respectively. This pattern can eliminate candidate Z from cells that see both wings.</p>
+                        
+                        <h3>Swordfish Pattern</h3>
+                        <p>Swordfish is an extension of X-Wing, involving three rows and three columns. When a number appears in exactly three cells across three rows, and those cells are in the same three columns, you can eliminate that number from other cells in those columns.</p>
+                        
+                        <h3>Jellyfish Technique</h3>
+                        <p>Jellyfish is the four-row version of Swordfish. It's rare but powerful when it appears, allowing you to eliminate candidates across four columns.</p>
+                        
+                        <h3>Remote Pairs</h3>
+                        <p>Remote pairs occur when two candidates form a chain of pairs throughout the puzzle. If you can establish that one candidate must be true, you can eliminate the other throughout the chain.</p>
+                        
+                        <h3>Unique Rectangle</h3>
+                        <p>This technique uses the fact that a valid Sudoku puzzle has only one solution. If placing a number would create multiple solutions, that placement must be incorrect.</p>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <h2>Mental Benefits of Playing Sudoku Regularly</h2>
+                    <div class="post-meta">
+                        <span class="date">November 30, 2024</span>
+                        <span class="author">by Sudoku Well Team</span>
+                    </div>
+                    <div class="post-content">
+                        <p>Sudoku isn't just a fun puzzle game—it's also an excellent mental workout with numerous cognitive benefits.</p>
+                        
+                        <h3>Improves Memory</h3>
+                        <p>Playing Sudoku regularly can enhance both short-term and long-term memory. The game requires you to remember numbers and their positions, strengthening neural connections in the brain.</p>
+                        
+                        <h3>Enhances Logical Thinking</h3>
+                        <p>Sudoku is essentially a logic puzzle. Regular practice improves your ability to think logically, analyze situations, and make sound decisions based on available information.</p>
+                        
+                        <h3>Boosts Concentration</h3>
+                        <p>Solving Sudoku requires intense focus and concentration. Regular practice can improve your ability to concentrate on tasks and ignore distractions.</p>
+                        
+                        <h3>Reduces Stress</h3>
+                        <p>Engaging in Sudoku can be a form of meditation, helping to reduce stress and anxiety. The focused attention required can help clear your mind of worries.</p>
+                        
+                        <h3>Prevents Cognitive Decline</h3>
+                        <p>Studies suggest that regularly engaging in mentally stimulating activities like Sudoku may help prevent age-related cognitive decline and reduce the risk of dementia.</p>
+                        
+                        <h3>Improves Problem-Solving Skills</h3>
+                        <p>Sudoku teaches systematic problem-solving approaches that can be applied to real-world challenges. You learn to break down complex problems into manageable parts.</p>
+                        
+                        <h3>Enhances Pattern Recognition</h3>
+                        <p>Regular Sudoku practice improves your ability to recognize patterns, which is a valuable skill in many areas of life and work.</p>
+                        
+                        <h3>Provides a Sense of Achievement</h3>
+                        <p>Completing a Sudoku puzzle provides a sense of accomplishment and satisfaction, which can boost mood and self-confidence.</p>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container">
+            <header>
+                <h1>Contact Us</h1>
+                <p class="subtitle">Get in touch with us</p>
+            </header>
+
+            <main class="contact-content">
+                <div class="contact-card">
+                    <h2>Get in Touch</h2>
+                    <p>Have questions about Sudoku Well? We'd love to hear from you!</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h3>📧 Email</h3>
+                            <p>contact@sudokuwell.com</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>🌐 Website</h3>
+                            <p>www.sudokuwell.com</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>📱 Social Media</h3>
+                            <p>Follow us on Twitter, Facebook, and Instagram</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h3>🔒 Privacy</h3>
+                            <p><a href="privacy.html" target="_blank">Privacy Policy</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject:</label>
+                                <select id="subject" name="subject">
+                                    <option value="general">General Inquiry</option>
+                                    <option value="bug">Bug Report</option>
+                                    <option value="feature">Feature Request</option>
+                                    <option value="feedback">Feedback</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message:</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
