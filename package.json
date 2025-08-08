@@ -23,5 +23,13 @@
     "type": "git",
     "url": "https://github.com/yourusername/sudoku-well.git"
   },
-  "homepage": "https://sudoku-well.vercel.app"
+  "homepage": "https://sudoku-well.vercel.app",
+  "dependencies": {
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/speed-insights": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7"
+  }
 }
