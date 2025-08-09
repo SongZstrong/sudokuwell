@@ -68,6 +68,22 @@ class MultiSudokuGame {
         if (targetPage) {
             targetPage.classList.add('active');
         }
+        
+        // Update URL hash for SEO
+        window.location.hash = pageName;
+        
+        // Update page title for better SEO
+        const pageTitles = {
+            'game': 'Free Online Sudoku Game - Play Multiple Puzzle Sizes | Sudoku Well',
+            'tutorial': 'Complete Sudoku Tutorial - Learn All Game Types | Sudoku Well',
+            'blog': 'Sudoku Strategy Blog - Expert Tips & Advanced Techniques | Sudoku Well',
+            'about': 'About Sudoku Well - Your Trusted Sudoku Destination | Sudoku Well',
+            'contact': 'Contact Sudoku Well - Get Help & Support | Sudoku Well'
+        };
+        
+        if (pageTitles[pageName]) {
+            document.title = pageTitles[pageName];
+        }
     }
 
     handleContactForm() {
